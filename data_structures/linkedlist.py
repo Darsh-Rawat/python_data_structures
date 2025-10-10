@@ -21,7 +21,7 @@ class LinkedList :
             ll = LinkedList()
             ll.append(10)
         """
-        if self.head == None:  
+        if self.head is None:  
             self.head = Node(data)
             self._size += 1
             
@@ -53,7 +53,7 @@ class LinkedList :
             ll.prepend(5)
             # List now: 5 -> existing nodes
         """
-        if self.head == None:  
+        if self.head is None:  
             self.head = Node(data)
             self._size += 1
         else : 
@@ -85,7 +85,22 @@ class LinkedList :
             ll.insert_at(1, 15)
             # Inserts 15 at position 1
         """
-        ...
+        if index == 0 : 
+            self.prepend(data)   
+        elif index == self.size() : 
+            self.append(data)
+        else : 
+            prev = self.head
+            for i in range(index-1):
+                prev = prev.next
+                
+            newNode = Node(data)
+            current = prev.next
+            prev.next = newNode
+            newNode.next = current
+            self._size += 1
+        
+            
     def delete(self,data):
         """
         Remove the first node in the list that contains the specified data.
@@ -105,7 +120,22 @@ class LinkedList :
             ll.delete(20)
             # Removes first node with value 20
         """
-        ...
+        if self.head is None : 
+            return None
+        else : 
+            prev = self.head
+            current = self.head.next
+            while(current is not None) : 
+                if current.data == data : 
+                    prev.next = current.next
+                    self._size -= 1
+                    return True
+                prev = current
+                current = current.next
+            else:
+                return False
+                     
+        
     def search(self,data):
         """
         Check if the linked list contains a node with the given data.
@@ -123,7 +153,17 @@ class LinkedList :
         Example:
             ll.search(10)  # True if 10 exists, False otherwise
         """
-        ...
+        if self.head is None : 
+            return None
+        else : 
+            temp = self.head
+            while(temp is not None) : 
+                if temp.data == data : 
+                    return True
+                temp = temp.next
+            else:
+                return False
+        
     def display(self):
         """
         Return a list of all node values in the linked list in order.
