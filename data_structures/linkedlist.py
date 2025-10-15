@@ -226,4 +226,4 @@ class LinkedList :
             current = current.next
     
     def __getitem__(self, index):
-        return self.get_at(index)
+        return self.__get_at(index)
