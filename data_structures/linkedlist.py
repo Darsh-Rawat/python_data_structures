@@ -87,7 +87,7 @@ class LinkedList :
         """
         if index == 0 : 
             self.prepend(data)   
-        elif index == self.size() : 
+        elif index == self._size : 
             self.append(data)
         else : 
             prev = self.head
@@ -163,6 +163,30 @@ class LinkedList :
                 temp = temp.next
             else:
                 return False
+            
+    def __get_at(self,index) :
+        """
+        Retrieve the data stored at a specific index in the linked list.
+
+        Args:
+            index (int): The position of the node whose data should be returned (0-based index).
+
+        Returns:
+            Any: The data stored in the node at the given index.
+
+        Raises:
+            IndexError: If the index is out of range or the list is empty.
+        """
+        if self.head is None:
+            raise IndexError("Cannot access element from an empty linked list.")
+        elif index < 0 or index >= self._size : 
+            raise IndexError("Index out of range.")
+        else : 
+            temp = self.head
+            for i in range(index) :
+                temp = temp.next
+            return temp.data
+ 
         
     def display(self):
         """
@@ -191,15 +215,15 @@ class LinkedList :
                 content.append(temp.data)
                 temp = temp.next
             return content
-                
-    def size(self) : 
-        """
-        Return the number of nodes currently in the linked list.
-
-        Returns:
-            int: The number of nodes in the list.
-
-        Example:
-            ll.size()  # 3 if there are 3 nodes
-        """
+    
+    def __len__(self):
         return self._size
+    
+    def __iter__(self):
+        current = self.head
+        while current:
+            yield current.data
+            current = current.next
+    
+    def __getitem__(self, index):
+        return self.__get_at(index)
