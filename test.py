@@ -33,7 +33,9 @@ l1.append(3)
 
 s1 = Stack()
 s1.push(10)
-s1.pop()
-print(s1.is_empty())
-
-    
+s1.push(11)
+s1.push(12)
+# print(s1.is_empty())
+# print(len(s1))
+print(s1.peek(n=2))
+print(s1.search(12))    
