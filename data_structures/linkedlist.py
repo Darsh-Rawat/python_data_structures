@@ -216,6 +216,32 @@ class LinkedList :
                 temp = temp.next
             return content
     
+    def reverse(self) :
+        """
+        Reverses the linked list in place.
+
+        This method modifies the current linked list by reversing the order 
+        of its nodes. After calling this method, the head of the list will 
+        point to the previous tail, and all node connections will be reversed.
+
+        Example:
+            >>> ll = LinkedList()
+            >>> ll.append(1)
+            >>> ll.append(2)
+            >>> ll.append(3)
+            >>> ll.reverse()
+            >>> ll.display()
+            3 -> 2 -> 1
+        """
+        curr = self.head
+        prev = None
+        while curr : 
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        self.head = prev
+    
     def __len__(self):
         return self._size
     
