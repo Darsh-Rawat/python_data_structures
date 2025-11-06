@@ -3,6 +3,7 @@ from data_structures.linkedlist import LinkedList
 class Stack : 
     def __init__(self):
         self.list = LinkedList()
+    
         
     def push(self,data):
         """
