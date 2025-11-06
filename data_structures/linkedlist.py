@@ -15,7 +15,7 @@ class LinkedList :
             data (any): The value to store in the node.
 
         Returns:
-            None
+            Node: The appended node.
 
         Example:
             ll = LinkedList()
@@ -24,6 +24,7 @@ class LinkedList :
         if self.head is None:  
             self.head = Node(data)
             self._size += 1
+            return self.head
             
         else : 
             temp = self.head
@@ -31,6 +32,8 @@ class LinkedList :
                 temp = temp.next
             temp.next = Node(data)   
             self._size += 1
+        
+            return temp.next
             
                      
     def prepend(self,data) : 
