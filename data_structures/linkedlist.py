@@ -128,15 +128,20 @@ class LinkedList :
         else : 
             prev = self.head
             current = self.head.next
-            while(current is not None) : 
-                if current.data == data : 
-                    prev.next = current.next
-                    self._size -= 1
-                    return True
-                prev = current
-                current = current.next
-            else:
-                return False
+            if prev.data == data : 
+                self.head = None
+                self._size -= 1
+                return True
+            else : 
+                while current : 
+                    if current.data == data : 
+                        prev.next = current.next
+                        self._size -= 1
+                        return True
+                    prev = current
+                    current = current.next
+                else:
+                    return False
                      
         
     def search(self,data):
@@ -256,3 +261,20 @@ class LinkedList :
     
     def __getitem__(self, index):
         return self.__get_at(index)
+
+class CircularLinkedList() : 
+    def __init__(self) -> None:
+        self.head = None
+        self.last = self.head
+        self._size = 0
+    
+    def append(self,value) : 
+        if self.head is None : 
+            self.head = Node(value)
+            self.head.next = self.head
+        else : 
+            new_node = Node(value)
+            self.last.next = new_node
+            new_node.next = self.head
+            self.last = new_node
+            
