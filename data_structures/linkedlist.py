@@ -128,10 +128,12 @@ class LinkedList :
         else : 
             prev = self.head
             current = self.head.next
+            
             if prev.data == data : 
                 self.head = None
                 self._size -= 1
                 return True
+            
             else : 
                 while current : 
                     if current.data == data : 

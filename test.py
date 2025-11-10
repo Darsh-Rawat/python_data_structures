@@ -51,21 +51,24 @@ from data_structures.queue import Queue
 # =============================================================================
 #                                   LINKED LIST
 # =============================================================================
-# l2 = LinkedList()
-# l2.append(1)
 # l2.append(2)
 # l2.append(3)
 # l2.append(4)
+l3 = LinkedList()
+l3.append(1)
+l3.delete(1)
+print(l3.display())
 
 # l2.reverse()
 # print(f"Len : {len(l1)}")
 # print(l2.display())
 
+
 # =============================================================================
 #                                   QUEUE
 # =============================================================================
-q1 = Queue()
-q1.enqueue(10)
-q1.enqueue(11)
-q1.dequeue()
-print(q1.peek())
+# q1 = Queue()
+# q1.enqueue(10)
+# q1.enqueue(11)
+# q1.dequeue()
+# print(q1.peek())
