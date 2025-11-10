@@ -98,7 +98,7 @@ dsa-package/
 ## 🛠️ Installation
 
 ```bash
-git clone https://github.com/yourusername/dsa-package.git
+git clone https://github.com/Darsh-Rawat/python_data_structures
 cd dsa-package
 pip install -e .
 ```
@@ -124,6 +124,3 @@ Contributions are welcome!
 Feel free to fork, improve, and submit PRs. You can also open issues for any bugs or feature requests.
 
 ---
-
-Would you like me to **add badges** (like Python version, License, PRs welcome, etc.) and a **project banner** section at the top (for GitHub aesthetics)?
-That would make your README look even more professional.
