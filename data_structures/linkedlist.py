@@ -129,8 +129,8 @@ class LinkedList :
             prev = self.head
             current = self.head.next
             
-            if prev.data == data : 
-                self.head = None
+            if self.head.data == data : 
+                self.head = self.head.next
                 self._size -= 1
                 return True
             
@@ -280,3 +280,14 @@ class CircularLinkedList() :
             new_node.next = self.head
             self.last = new_node
             
+    def display(self):
+        temp = self.head
+        if not temp : 
+            return []
+        else : 
+            content = []
+            while(temp != self.head) : 
+                content.append(temp.data)
+                temp = temp.next
+            content.append(temp.data)
+            return content
